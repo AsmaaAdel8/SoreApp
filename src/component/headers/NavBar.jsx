@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import MobileNav from "./MobileNav";
+import MyCart from "../Carts/MyCart";
 export default function NavBar() {
   return (
     <div className="bg-amber-800 h-[10vh] w-full flex flex-row items-center justify-between">
@@ -15,7 +16,7 @@ export default function NavBar() {
         </Link>
       </div>
       <div className="flex flex-row items-center">
-        <TiShoppingCart onClick={<MyCart/>}/>
+        <TiShoppingCart onClick={()=> <MyCart/>}/>
         <input
           type="search"
           placeholder="Search"
@@ -29,7 +30,7 @@ export default function NavBar() {
       </div>
       <AiOutlineUnorderedList
         className="hidden md:visible"
-        onClick={<MobileNav />}
+        onClick={()=> <MobileNav />}
       />
     </div>
   );
