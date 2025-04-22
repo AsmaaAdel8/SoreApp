@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Link {
+    text-decoration: none;
+    font-weight: bold;
+    color:burlywood;
+    cursor: pointer;
+}

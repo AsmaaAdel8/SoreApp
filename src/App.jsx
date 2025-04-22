@@ -5,6 +5,7 @@ import NotFound from "./component/NotFound";
 import Login from "./component/Registeration/Login";
 import Registe from "./component/Registeration/Registe";
 import MyCart from "./component/Carts/MyCart";
+import Profile from "./component/Checkout/Profile";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="registe" element={<Registe />} />
           <Route path="mycart" element={<MyCart />} />
-          {/* <Route path="profile" element={<Profile} /> */}
+          <Route path="profile" element={<Profile/>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
