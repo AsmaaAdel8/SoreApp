@@ -1,4 +1,4 @@
-import Home from "./component/Home";
+import Home from "./component/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./component";
 import NotFound from "./component/NotFound";

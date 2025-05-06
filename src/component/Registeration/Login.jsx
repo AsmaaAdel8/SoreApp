@@ -1,24 +1,29 @@
-import React, { useContext, useState } from "react";
-import { MyContext } from "../../Context/UserStore";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PiPersonSimpleCircleBold } from "react-icons/pi";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserLoge } from "../Redux/User-Slice";
 
 export default function Login() {
   const [emai, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const { user } = useContext(MyContext);
+  const items = useSelector((state) => state.users.items);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const checkData = () => {
-    if (user) {
-      if (user.email === emai && user.passward === pass) {
-        alert("Loged SuccessFully 😎");
-        user.loge = true;
-        navigate("/");
-      } else {
-        alert("your Data Not Found 🤨");
-        navigate("/registe");
-      }
+    if (items) {
+      items.map((item) => {
+        if (item.email === emai && item.passward === pass) {
+          alert("Loged SuccessFully 😎");
+          dispatch(updateUserLoge(emai));
+          navigate("/");
+        } else {
+          alert("your Data Not Found 🤨");
+          console.log(items);
+          navigate("/registe");
+        }
+      });
     }
   };
 

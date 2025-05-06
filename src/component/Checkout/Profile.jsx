@@ -4,7 +4,7 @@ import { MyContext } from "../../Context/UserStore";
 function Profile() {
   const { user } = useContext(MyContext);
   return (
-    <div>
+    <div className="bg-yellow-500">
       <h2>Name : {user.name}</h2>
       <p> Email : {user.email}</p>
     </div>

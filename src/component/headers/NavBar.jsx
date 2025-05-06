@@ -1,23 +1,25 @@
-import React, { useContext } from "react";
 import { SlSocialDropbox } from "react-icons/sl";
 import { TiShoppingCart } from "react-icons/ti";
 import { Link, useNavigate } from "react-router-dom";
 import "../../App.css";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import MobileNav from "./MobileNav";
-import { MyContext } from "../../Context/UserStore";
+import { useDispatch, useSelector } from "react-redux";
+import { deleUser } from "../Redux/User-Slice";
+
 export default function NavBar() {
   const navigate = useNavigate();
-  const { user } = useContext(MyContext);
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.users.items);
   const LogOut = () => {
-    user.loge = false;
+    dispatch(deleUser());
     navigate("/registe");
   };
   return (
-    <div className="bg-dark h-[10vh] w-full flex flex-row items-center justify-between">
+    <div className="bg-yellow-700 h-[10vh] w-full flex flex-row items-center justify-between">
       <div className="flex items-center justify-between w-[8%]">
         <SlSocialDropbox className="text-4xl text-white" />
-        <Link to="" className="text-4xl text-amber-200 ">
+        <Link to="" className="text-4xl text-amber-700 ">
           Daraz
         </Link>
       </div>
@@ -38,23 +40,24 @@ export default function NavBar() {
           Search
         </button>
         <div className="flex flex-row items-center justify-between">
-          {user.loge ? (
-            <>
-              <p onClick={() => navigate("/profile")}>{user.name} |</p>
-              <p onClick={() => LogOut()}> LogeOut |</p>
-            </>
-          ) : (
-            <>
-              <p onClick={() => navigate("/login")}>Login |</p>
-              <p onClick={() => navigate("/registe")}> Register |</p>
-            </>
-          )}
+          {items.map((item, index) => (
+            <div key={index}>
+              {item.loge ? (
+                <>
+                  <p onClick={() => navigate("/profile")}>{item.name} |</p>
+                  <p onClick={() => LogOut()}> LogeOut |</p>
+                </>
+              ) : (
+                <>
+                  <p onClick={() => navigate("/login")}>Login |</p>
+                  <p onClick={() => navigate("/registe")}> Register |</p>
+                </>
+              )}
+            </div>
+          ))}
         </div>
       </div>
-      <AiOutlineUnorderedList
-        className="hidden md:visible"
-        onClick={() => <MobileNav />}
-      />
+      <AiOutlineUnorderedList className="" onClick={() => <MobileNav />} />
     </div>
   );
 }
