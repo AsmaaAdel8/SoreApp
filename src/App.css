@@ -1,4 +1,6 @@
-
+#scro:checked{
+    scroll-margin-bottom:20rem ;
+}
 Link{
     text-decoration: none;
     font-weight: bold;

@@ -6,7 +6,7 @@ import { SlSocialDropbox } from "react-icons/sl";
 
 export default function Footer() {
   return (
-    <div className="bg-pink-800 w-full h-[50vh] grid grid-cols-4 gap-32 mt-10 ">
+    <div className="w-[90%] mx-auto grid xl:grid-cols-4 gap-32 mt-10 md:grid-cols-2 sm:grid-cols-1 text-center">
       <div>
         <h3>Customer Care</h3>
         <p>Help Center</p>
@@ -58,12 +58,12 @@ export default function Footer() {
         </div>
       </div>
       <div>
-        <h2 className="bg-amber-700 w-3xl rounded-lg font-medium text-amber-200">
+        <h2 className="bg-amber-700 w-[70%] rounded-lg font-medium text-amber-200">
           <SlSocialDropbox className="text-4xl text-white" /> DARAZ
         </h2>
         <p>Happy Shopping</p>
         <h3>Follow Us</h3>
-        <p className="grid grid-cols-4 gap-4">
+        <p className="grid grid-cols-4 gap-4 cursor-pointer">
           <FaFacebook />
           <BsInstagram />
           <BsYoutube />

@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
-import { MyContext } from "../../Context/UserStore";
+import { useSelector } from "react-redux";
 
 function Profile() {
-  const { user } = useContext(MyContext);
+  const items = useSelector((state) => state.users.items);
   return (
     <div className="bg-yellow-500">
-      <h2>Name : {user.name}</h2>
-      <p> Email : {user.email}</p>
+      {items.map((item, index) => {
+        <div key={index}>
+          return(
+          <h1>Name: {item.name}</h1>)
+        </div>;
+      })}
     </div>
   );
 }
